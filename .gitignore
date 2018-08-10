@@ -1,3 +1,7 @@
 temperature-raspberry/.idea/
 temperature-raspberry/gradle/
 temperature-raspberry/.gradle/
+temperature-commons/.gradle/
+temperature-commons/.idea/
+temperature-commons/build/
+temperature-commons/gradle/
