@@ -5,3 +5,8 @@ temperature-commons/.gradle/
 temperature-commons/.idea/
 temperature-commons/build/
 temperature-commons/gradle/
+temperature-raspberry/out/
+temperature-computer/out/
+temperature-computer/gradle/
+temperature-computer/.idea/
+temperature-computer/.gradle/

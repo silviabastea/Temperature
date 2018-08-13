@@ -31,6 +31,6 @@ public class Temperature {
 
     @Override
     public String toString() {
-        return "In " + currentCity + " are " + currentTemperature + "degrees";
+        return "In " + currentCity + " are " + currentTemperature + " degrees";
     }
 }
