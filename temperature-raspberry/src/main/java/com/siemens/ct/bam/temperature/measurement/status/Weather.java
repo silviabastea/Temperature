@@ -14,9 +14,12 @@ public class Weather {
 
 
         String content = temperatureClient.getContent();
-        Integer locationIndex = content.indexOf(location.getCurrentCity());
+        String city = location.getCurrentCity();
+        Integer cityLength = city.length();
 
-        weather = content.substring(locationIndex + 25, locationIndex + 29).trim();
+        Integer locationIndex = content.indexOf(city) + cityLength;
+
+        weather = content.substring(locationIndex + 11, locationIndex + 15).trim();
         return Double.parseDouble(weather);
 
     }
