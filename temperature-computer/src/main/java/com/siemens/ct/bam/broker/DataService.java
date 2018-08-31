@@ -11,12 +11,12 @@ import com.siemens.ct.bam.commons.models.TemperatureMeasurement;
 
 public class DataService {
 
-    public void sendRequest(RequestType request) throws Exception {
+    public void sendRequest(RequestType request){
         String message = new Gson().toJson(request);
         BrokerService.getInstance().sendMessage(message, Constants.COMMAND);
     }
 
-    public TemperatureMeasurement receiveTemperatureMeasurement() throws Exception {
+    public TemperatureMeasurement receiveTemperatureMeasurement(){
         final String[] message = {null};
         BrokerService.getInstance().receiveMessage(Constants.TEMPERATURE_MEASUREMENT, new MessageConsumerFromBrokerService() {
             @Override
@@ -27,7 +27,7 @@ public class DataService {
         return new Gson().fromJson(message[0], TemperatureMeasurement.class);
     }
 
-    public TemperatureAverage receiveTemperatureAverage() throws Exception {
+    public TemperatureAverage receiveTemperatureAverage(){
         final String[] message = {null};
         BrokerService.getInstance().receiveMessage(Constants.AVERAGE_TEMPERATURE, new MessageConsumerFromBrokerService() {
             @Override

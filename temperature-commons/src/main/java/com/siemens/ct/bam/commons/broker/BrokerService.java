@@ -15,17 +15,17 @@ public class BrokerService {
     private Channel channel;
 
     private BrokerService() {
-        
+
     }
 
-    public static BrokerService getInstance() throws Exception {
+    public static BrokerService getInstance() {
         if (instance == null) {
             instance = new BrokerService();
         }
         return instance;
     }
 
-    public void connect2Broker() throws Exception {
+    public void connect2Broker(){
         try {
 
             ConnectionFactory factory = new ConnectionFactory();
@@ -58,24 +58,26 @@ public class BrokerService {
         }
     }
 
-    public void receiveMessage(String routingKey, MessageConsumerFromBrokerService messageConsumerFromBrokerService) throws Exception {
+    public void receiveMessage(String routingKey, MessageConsumerFromBrokerService messageConsumerFromBrokerService){
 
-        channel.exchangeDeclare(Constants.EXCHANGE_NAME, BuiltinExchangeType.TOPIC);
-        String queueName = channel.queueDeclare().getQueue();
-        channel.queueBind(queueName, Constants.EXCHANGE_NAME, routingKey);
+        try {
+            channel.exchangeDeclare(Constants.EXCHANGE_NAME, BuiltinExchangeType.TOPIC);
+            String queueName = channel.queueDeclare().getQueue();
+            channel.queueBind(queueName, Constants.EXCHANGE_NAME, routingKey);
 
 
-        Consumer consumer = new DefaultConsumer(channel) {
-            @Override
-            public void handleDelivery(String consumerTag,
-                                       Envelope envelope,
-                                       AMQP.BasicProperties properties,
-                                       byte[] body) throws IOException {
-                String message = new String(body, StandardCharsets.UTF_8);
-                messageConsumerFromBrokerService.onNewMessage(message);
-            }
-        };
-        channel.basicConsume(queueName, true, consumer);
+            Consumer consumer = new DefaultConsumer(channel) {
+                @Override
+                public void handleDelivery(String consumerTag,
+                                           Envelope envelope,
+                                           AMQP.BasicProperties properties,
+                                           byte[] body) throws IOException {
+                    String message = new String(body, StandardCharsets.UTF_8);
+                    messageConsumerFromBrokerService.onNewMessage(message);
+                }
+            };
+            channel.basicConsume(queueName, true, consumer);
+        } catch (Exception ignore){}
     }
 
 }
