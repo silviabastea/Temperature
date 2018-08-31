@@ -17,12 +17,18 @@ public class TemperatureMeasurementUI extends  JDialog{
         setModal(true);
         cityNames.setModel(new DefaultComboBoxModel(UIUtil.getCityNames().toArray()));
 
+
         buttonGetTemp.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                String cityNameFromComboBox = (String) cityNames.getSelectedItem();
+
+
             }
         });
+
+
 
 
 

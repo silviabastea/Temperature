@@ -15,7 +15,7 @@ public class BrokerService {
     private Channel channel;
 
     private BrokerService() {
-
+        
     }
 
     public static BrokerService getInstance() throws Exception {
