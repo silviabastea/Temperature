@@ -2,21 +2,22 @@ package com.siemens.ct.bam.GUI;
 
 import com.siemens.ct.bam.broker.DataService;
 import com.siemens.ct.bam.commons.models.RequestType;
-import sun.security.pkcs11.wrapper.Constants;
+import com.siemens.ct.bam.commons.models.TemperatureMeasurement;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class TemperatureMeasurementUI extends  JDialog{
+public class TemperatureMeasurementUI extends JDialog {
 
     private JPanel measurementPanel;
     private JComboBox cityNames;
     private JButton buttonGetTemp;
-    private JList temperatureMessages;
+    private JTextArea temperatureMessages;
 
-    public TemperatureMeasurementUI()  {
-
+    public TemperatureMeasurementUI() {
+        this.setMinimumSize(new Dimension(500, 500));
         setContentPane(measurementPanel);
         setModal(true);
         cityNames.setModel(new DefaultComboBoxModel(UIUtil.getCityNames().toArray()));
@@ -30,10 +31,18 @@ public class TemperatureMeasurementUI extends  JDialog{
                 RequestType request = new RequestType(RequestType.TEMPERATURE_REQUEST, cityNameFromComboBox);
 
                 DataService dataService = new DataService();
-                    dataService.sendRequest(request);
-
+                dataService.sendRequest(request);
             }
         });
+
+        
+        DataService dataService = new DataService();
+
+
+        temperatureMessages.setPreferredSize(new Dimension(20,20));
+        TemperatureMeasurement temperatureMeasurement = dataService.receiveTemperatureMeasurement();
+        temperatureMessages.setText(temperatureMeasurement.toString());
+
 
 
 
