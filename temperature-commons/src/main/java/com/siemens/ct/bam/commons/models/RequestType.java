@@ -19,6 +19,10 @@ public class RequestType {
         return request;
     }
 
+    public String getCitySpecified() {
+        return citySpecified;
+    }
+
     @Override
     public String toString() {
         return "Request is: " + request + ", for city" + citySpecified +  " .";

@@ -1,26 +1,26 @@
 package com.siemens.ct.bam.temperature.measurement.status;
 
+import com.siemens.ct.bam.commons.models.TemperatureMeasurement;
 import com.siemens.ct.bam.rest.services.TemperatureClient;
 
 public class Weather {
 
-    Location location = new Location();
     TemperatureClient temperatureClient = new TemperatureClient();
 
 
     String weather;
+    TemperatureMeasurement temperatureMeasurement;
 
-    public Double getWeather() {
-
+    public TemperatureMeasurement getWeather(String location) {
 
         String content = temperatureClient.getContent();
-        String city = location.getCurrentCity();
-        Integer cityLength = city.length();
+        Integer locationLength = location.length();
 
-        Integer locationIndex = content.indexOf(city) + cityLength;
+        Integer locationIndex = content.indexOf(location) + locationLength;
 
         weather = content.substring(locationIndex + 11, locationIndex + 15).trim();
-        return Double.parseDouble(weather);
+        temperatureMeasurement = new TemperatureMeasurement(location, Double.parseDouble(weather));
+        return temperatureMeasurement;
 
     }
 }
