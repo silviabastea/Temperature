@@ -1,30 +1,38 @@
 package com.siemens.ct.bam.main;
 
-import com.siemens.ct.bam.broker.DataBroker;
-import com.siemens.ct.bam.commons.Temperature;
-import com.siemens.ct.bam.temperature.status.Degrees;
-import com.siemens.ct.bam.temperature.status.TemperatureUtil;
 
-import java.io.IOException;
+import com.siemens.ct.bam.broker.DataService;
+import com.siemens.ct.bam.commons.broker.BrokerService;
+import com.siemens.ct.bam.rest.services.TemperatureClient;
+
+import java.util.concurrent.TimeUnit;
 
 public class Main {
-    public static boolean condition = true;
+
 
     public static void main(String[] args) throws Exception {
+/*
+        BrokerService.getInstance().connect2Broker();
 
-        TemperatureUtil temperatureUtil = new TemperatureUtil();
-        DataBroker dataBroker = new DataBroker();
+        TimeUnit.SECONDS.sleep(10);
+        DataService dataService = new DataService();
+        dataService.addListenerForRequests();
 
-        Thread secondThread = new Thread(() -> {
-            while(condition){
-                Temperature temperature = temperatureUtil.getTemperature();
-                dataBroker.sendingData(temperature);
-            }
-        });
-        secondThread.start();
 
-        System.in.read();
-        condition = false;
+        TimeUnit.SECONDS.sleep(15);
+        BrokerService.getInstance().disconnectFromBroker();
 
+*/
+
+        TemperatureClient temperatureClient = new TemperatureClient();
+        WriteInFile writer = new WriteInFile();
+
+       String content = temperatureClient.getContent();
+
+
+        Integer nameIndex = content.indexOf("nume");
+
+        String place  = content.substring(nameIndex +1, nameIndex + 29).trim();
+        System.out.println(place);
     }
 }

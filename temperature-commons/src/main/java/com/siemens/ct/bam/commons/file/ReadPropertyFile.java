@@ -1,4 +1,4 @@
-package com.siemens.ct.bam.commons;
+package com.siemens.ct.bam.commons.file;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -10,7 +10,7 @@ public class ReadPropertyFile {
 
     public static final String CONFIG_PROPERTIES_FILE_NAME = "config.properties";
 
-    public static String getProperty(String propertyKey){
+    public static String getProperty(String propertyKey) {
         Properties properties = new Properties();
         InputStream input = null;
         String property = null;
@@ -36,14 +36,7 @@ public class ReadPropertyFile {
 
     }
 
-    public static String getExchangeName(){
-        String exchangeName = null;
-        exchangeName = getProperty("exchange_name");
-
-        return exchangeName;
-    }
-
-    public static String getHost(){
+    public static String getHost() {
         String host = null;
         host = getProperty("host");
 
@@ -58,12 +51,6 @@ public class ReadPropertyFile {
     public static String getPassword() {
         String password = getProperty("password");
         return password;
-    }
-
-    public static String getRoutingKey(){
-        String bindingKey = null;
-        bindingKey = getProperty("routing_key");
-        return bindingKey;
     }
 
 }
