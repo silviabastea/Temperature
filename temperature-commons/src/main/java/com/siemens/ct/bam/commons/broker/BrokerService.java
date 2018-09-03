@@ -77,7 +77,9 @@ public class BrokerService {
                 }
             };
             channel.basicConsume(queueName, true, consumer);
-        } catch (Exception ignore){}
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 }

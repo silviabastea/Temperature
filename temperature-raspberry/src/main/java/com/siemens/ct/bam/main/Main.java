@@ -3,9 +3,6 @@ package com.siemens.ct.bam.main;
 
 import com.siemens.ct.bam.broker.DataService;
 import com.siemens.ct.bam.commons.broker.BrokerService;
-import com.siemens.ct.bam.rest.services.TemperatureClient;
-import com.siemens.ct.bam.temperature.measurement.status.TemperatureUtil;
-import com.siemens.ct.bam.temperature.measurement.status.Weather;
 
 import java.util.concurrent.TimeUnit;
 
@@ -13,18 +10,20 @@ public class Main {
 
 
     public static void main(String[] args) throws Exception {
-/*
+
         BrokerService.getInstance().connect2Broker();
 
-        TimeUnit.SECONDS.sleep(10);
+        //TimeUnit.SECONDS.sleep(16);
         DataService dataService = new DataService();
         dataService.addListenerForRequests();
 
+       // TimeUnit.SECONDS.sleep(100);
 
-        TimeUnit.SECONDS.sleep(15);
-        BrokerService.getInstance().disconnectFromBroker();
 
-*/
+        //TimeUnit.SECONDS.sleep(15);
+       // BrokerService.getInstance().disconnectFromBroker();
+
+
 /*
         TemperatureClient temperatureClient = new TemperatureClient();
         WriteInFile writer = new WriteInFile();
@@ -38,9 +37,7 @@ public class Main {
         System.out.println(place);
 
         */
-        TemperatureUtil tu = new TemperatureUtil();
 
-        System.out.println(tu.getTemperatureMeasurement() );
 
 
 

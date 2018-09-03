@@ -27,18 +27,15 @@ public class DataService {
     }
 
     public void executeRequest(RequestType request){
-
-        try{
         if (request.getRequest().equals(RequestType.TEMPERATURE_REQUEST)) {
             String temperatureMeasurement = new Gson().toJson(weather.getWeather(request.getCitySpecified()));
+            System.out.println(temperatureMeasurement);
             BrokerService.getInstance().sendMessage(temperatureMeasurement, Constants.TEMPERATURE_MEASUREMENT);
         } else if (request.getRequest().equals(RequestType.START_AVERAGE)) {
             String average = new Gson().toJson(temperatureAverage.getAverage());
             BrokerService.getInstance().sendMessage(average, Constants.AVERAGE_TEMPERATURE);
         } else if (request.getRequest().equals(RequestType.STOP_AVERAGE)) {
             //--------------------------------- !!!!!!!!!!!!!!!!!!!!!!!!!!!! ----------------------------------
-        }
-    }catch (Exception ignore){
         }
     }
 }

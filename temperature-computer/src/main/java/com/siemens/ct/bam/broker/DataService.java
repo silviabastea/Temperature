@@ -9,7 +9,10 @@ import com.siemens.ct.bam.commons.models.RequestType;
 import com.siemens.ct.bam.commons.models.TemperatureAverage;
 import com.siemens.ct.bam.commons.models.TemperatureMeasurement;
 
+
 public class DataService {
+
+
 
     public void sendRequest(RequestType request){
         String message = new Gson().toJson(request);
@@ -24,7 +27,8 @@ public class DataService {
                 message[0] = s;
             }
         });
-        return new Gson().fromJson(message[0], TemperatureMeasurement.class);
+        TemperatureMeasurement tm = new Gson().fromJson(message[0], TemperatureMeasurement.class);
+        return tm;
     }
 
     public TemperatureAverage receiveTemperatureAverage(){

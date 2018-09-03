@@ -10,7 +10,7 @@ public class TemperatureAverage {
 
         while (index < 5) {
 
-            average = average + temperatureWeather.getWeather();
+            //average = average + temperatureWeather.getWeather();
             index++;
         }
         average = average / 5;
