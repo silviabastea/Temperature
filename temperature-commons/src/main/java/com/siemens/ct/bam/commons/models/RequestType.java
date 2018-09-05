@@ -9,10 +9,19 @@ public class RequestType {
 
     private String request;
     String citySpecified;
+    Double measurementInterval;
+    Double reportInterval;
 
     public RequestType(String request, String citySpecified) {
         this.request = request;
         this.citySpecified = citySpecified;
+    }
+
+    public RequestType(String request, String citySpecified, Double measurementInterval, Double reportInterval) {
+        this.request = request;
+        this.citySpecified = citySpecified;
+        this.measurementInterval = measurementInterval;
+        this.reportInterval = reportInterval;
     }
 
     public String getRequest() {
@@ -21,6 +30,14 @@ public class RequestType {
 
     public String getCitySpecified() {
         return citySpecified;
+    }
+
+    public Double getMeasurementInterval() {
+        return measurementInterval;
+    }
+
+    public Double getReportInterval() {
+        return reportInterval;
     }
 
     @Override

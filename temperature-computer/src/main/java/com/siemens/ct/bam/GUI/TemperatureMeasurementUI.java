@@ -65,6 +65,33 @@ public class TemperatureMeasurementUI extends JDialog {
         });
 
 
+        buttonOnOffAvg.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                String cityNameFromComboBox = (String) cityNames.getSelectedItem();
+                if (buttonOnOffAvg.getText().equals("Start")) {
+                    Double measurementInterval = Double.parseDouble(measurementIntervalField.getText());
+                    Double reportInterval = Double.parseDouble(reportIntervalField.getText());
+
+
+                    RequestType request = new RequestType(RequestType.START_AVERAGE, cityNameFromComboBox, measurementInterval, reportInterval);
+                    String message = new Gson().toJson(request);
+                    BrokerService.getInstance().sendMessage(message, Constants.COMMAND);
+                    buttonOnOffAvg.setText("Stop");
+                } else {
+                    RequestType request = new RequestType(RequestType.STOP_AVERAGE, cityNameFromComboBox);
+                    String message = new Gson().toJson(request);
+                    BrokerService.getInstance().sendMessage(message,Constants.COMMAND);
+                    buttonOnOffAvg.setText("Start");
+                }
+
+            }
+        });
+
+
+
+
     }
 
 

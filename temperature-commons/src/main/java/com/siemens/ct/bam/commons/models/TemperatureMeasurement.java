@@ -13,9 +13,7 @@ public class TemperatureMeasurement {
         this.status = "successful";
     }
 
-    public TemperatureMeasurement(String currentCity, Double currentTemperature, String errorReport) {
-        this.currentCity = currentCity;
-        this.currentTemperature = currentTemperature;
+    public TemperatureMeasurement(String errorReport) {
         this.status = "failed";
         this.errorReport = errorReport;
     }
@@ -33,8 +31,12 @@ public class TemperatureMeasurement {
         return status;
     }
 
+    public String getErrorReport() {
+        return errorReport;
+    }
+
     @Override
     public String toString() {
-        return "In " + currentCity + " are " + currentTemperature + " degrees" + "action was: " + status + " .";
+        return "In " + currentCity + " is a temperature of " + currentTemperature + " degrees.";
     }
 }
