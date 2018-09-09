@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="MeasurementPanel" layout-manager="GridLayoutManager" row-count="5" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="690" height="429"/>
+      <xy x="20" y="20" width="815" height="429"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -65,7 +65,7 @@
         <properties/>
         <border type="empty" title=""/>
         <children>
-          <grid id="968b7" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="968b7" layout-manager="GridLayoutManager" row-count="1" column-count="7" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -73,29 +73,77 @@
             <properties/>
             <border type="empty"/>
             <children>
-              <component id="29666" class="javax.swing.JTextField" binding="reportIntervalField">
-                <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="1" use-parent-layout="false">
-                    <minimum-size width="100" height="25"/>
-                    <preferred-size width="100" height="25"/>
-                    <maximum-size width="100" height="25"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <text value=""/>
-                </properties>
-              </component>
               <component id="b683e" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="4" use-parent-layout="false"/>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="4" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <text value="Raport interval"/>
                 </properties>
               </component>
+              <component id="32958" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="hours"/>
+                </properties>
+              </component>
+              <component id="8cffe" class="javax.swing.JTextField" binding="hoursReportField">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <minimum-size width="40" height="25"/>
+                    <preferred-size width="40" height="25"/>
+                    <maximum-size width="40" height="25"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value="0"/>
+                </properties>
+              </component>
+              <component id="8b3b2" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="minutes"/>
+                </properties>
+              </component>
+              <component id="a3c02" class="javax.swing.JTextField" binding="minutesReportField">
+                <constraints>
+                  <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <minimum-size width="40" height="25"/>
+                    <preferred-size width="40" height="25"/>
+                    <maximum-size width="40" height="25"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value="0"/>
+                </properties>
+              </component>
+              <component id="67190" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="seconds"/>
+                </properties>
+              </component>
+              <component id="8d68d" class="javax.swing.JTextField" binding="secondsReportField">
+                <constraints>
+                  <grid row="0" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <minimum-size width="40" height="25"/>
+                    <preferred-size width="40" height="25"/>
+                    <maximum-size width="40" height="25"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value="0"/>
+                </properties>
+              </component>
             </children>
           </grid>
-          <grid id="8f839" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="8f839" layout-manager="GridLayoutManager" row-count="1" column-count="7" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -103,21 +151,69 @@
             <properties/>
             <border type="empty" title=""/>
             <children>
-              <component id="afdc5" class="javax.swing.JTextField" binding="measurementIntervalField">
+              <component id="97b39" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="1" use-parent-layout="false">
-                    <minimum-size width="100" height="25"/>
-                    <preferred-size width="100" height="25"/>
-                    <maximum-size width="100" height="25"/>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="hours"/>
+                </properties>
+              </component>
+              <component id="335f3" class="javax.swing.JTextField" binding="hoursMeasurementField">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <minimum-size width="40" height="25"/>
+                    <preferred-size width="40" height="25"/>
+                    <maximum-size width="40" height="25"/>
                   </grid>
                 </constraints>
                 <properties>
-                  <text value=""/>
+                  <text value="0"/>
+                </properties>
+              </component>
+              <component id="80d2f" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="minutes"/>
+                </properties>
+              </component>
+              <component id="db2e3" class="javax.swing.JTextField" binding="minutesMeasurementField">
+                <constraints>
+                  <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <minimum-size width="40" height="25"/>
+                    <preferred-size width="40" height="25"/>
+                    <maximum-size width="40" height="25"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value="0"/>
+                </properties>
+              </component>
+              <component id="e9a31" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="seconds"/>
+                </properties>
+              </component>
+              <component id="d8fe0" class="javax.swing.JTextField" binding="secondsMeasurementField">
+                <constraints>
+                  <grid row="0" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <minimum-size width="40" height="25"/>
+                    <preferred-size width="40" height="25"/>
+                    <maximum-size width="40" height="25"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value="0"/>
                 </properties>
               </component>
               <component id="7321b" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <text value="measurement interval"/>

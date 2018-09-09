@@ -5,13 +5,13 @@ import com.siemens.ct.bam.commons.MessageConsumerFromBrokerService;
 import com.siemens.ct.bam.commons.broker.BrokerService;
 import com.siemens.ct.bam.commons.constsnts.Constants;
 import com.siemens.ct.bam.commons.models.RequestType;
-import com.siemens.ct.bam.temperature.measurement.status.TemperatureAverage;
+import com.siemens.ct.bam.temperature.measurement.status.Average;
 import com.siemens.ct.bam.temperature.measurement.status.Weather;
 
 public class DataService {
 
     Weather weather = new Weather();
-    TemperatureAverage temperatureAverage = new TemperatureAverage();
+    Average average = new Average();
 
     public void addListenerForRequests(){
 
@@ -32,11 +32,9 @@ public class DataService {
             BrokerService.getInstance().sendMessage(temperatureMeasurement, Constants.TEMPERATURE_MEASUREMENT);
         } else if (request.getRequest().equals(RequestType.START_AVERAGE)) {
             while(!(request.getRequest().equals(RequestType.STOP_AVERAGE))) {
-                String average = new Gson().toJson(temperatureAverage.getAverage(request.getCitySpecified(), request.getMeasurementInterval(), request.getReportInterval()));
-                BrokerService.getInstance().sendMessage(average, Constants.AVERAGE_TEMPERATURE);
+                String averageMessage = new Gson().toJson(average.getAverage(request.getCitySpecified(), request.getMeasurementInterval(), request.getReportInterval()));
+                BrokerService.getInstance().sendMessage(averageMessage, Constants.AVERAGE_TEMPERATURE);
             }
-        } else if (request.getRequest().equals(RequestType.STOP_AVERAGE)) {
-            //--------------------------------- !!!!!!!!!!!!!!!!!!!!!!!!!!!! ----------------------------------
         }
     }
 }

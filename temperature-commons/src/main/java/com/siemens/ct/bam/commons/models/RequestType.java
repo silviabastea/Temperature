@@ -9,15 +9,15 @@ public class RequestType {
 
     private String request;
     String citySpecified;
-    Double measurementInterval;
-    Double reportInterval;
+    Integer measurementInterval;
+    Integer reportInterval;
 
     public RequestType(String request, String citySpecified) {
         this.request = request;
         this.citySpecified = citySpecified;
     }
 
-    public RequestType(String request, String citySpecified, Double measurementInterval, Double reportInterval) {
+    public RequestType(String request, String citySpecified, Integer measurementInterval, Integer reportInterval) {
         this.request = request;
         this.citySpecified = citySpecified;
         this.measurementInterval = measurementInterval;
@@ -32,11 +32,11 @@ public class RequestType {
         return citySpecified;
     }
 
-    public Double getMeasurementInterval() {
+    public Integer getMeasurementInterval() {
         return measurementInterval;
     }
 
-    public Double getReportInterval() {
+    public Integer getReportInterval() {
         return reportInterval;
     }
 

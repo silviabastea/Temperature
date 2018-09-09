@@ -8,8 +8,12 @@ public class TemperatureAverage {
         TemperatureAverage = temperatureAverage;
     }
 
+    public double getTemperatureAverage() {
+        return TemperatureAverage;
+    }
+
     @Override
     public String toString() {
-        return "Temperature in last hours is: " + TemperatureAverage + " .";
+        return "Temperature average is: " + TemperatureAverage + " .";
     }
 }
