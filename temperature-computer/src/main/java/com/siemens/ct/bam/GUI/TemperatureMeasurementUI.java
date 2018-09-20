@@ -9,9 +9,14 @@ import com.siemens.ct.bam.commons.models.TemperatureAverage;
 import com.siemens.ct.bam.commons.models.TemperatureMeasurement;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.concurrent.TimeUnit;
 
 public class TemperatureMeasurementUI extends JDialog {
 
@@ -29,6 +34,7 @@ public class TemperatureMeasurementUI extends JDialog {
     private JTextField hoursReportField;
     private JTextField minutesReportField;
     private JTextField secondsReportField;
+
 
     public TemperatureMeasurementUI() {
         this.setMinimumSize(new Dimension(500, 500));
@@ -62,16 +68,13 @@ public class TemperatureMeasurementUI extends JDialog {
         BrokerService.getInstance().receiveMessage(Constants.TEMPERATURE_MEASUREMENT, new MessageConsumerFromBrokerService() {
             @Override
             public void onNewMessage(String s) {
-
-//                try {
-//                    TimeUnit.SECONDS.sleep(5);
-//                } catch (InterruptedException e1) {
-//                    e1.printStackTrace();
-//                }
-
-                if (s == null)
-                    temperatureMessages.setText("Something don't work. Please check the raspberry.");
+//                if (temperatureMessages.getText().equals(null))
+//                    temperatureMessages.setText("Something don't work. Please check the raspberry.");
                 TemperatureMeasurement temperatureMeasurement = new Gson().fromJson(s, TemperatureMeasurement.class);
+                if(temperatureMeasurement.getStatus().equals(TemperatureMeasurement.NEGATIVE_STATUS))
+                {
+                //------------------------------!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-----------------------------------
+                }
                 temperatureMessages.setText(temperatureMeasurement.toString());
             }
 
@@ -144,14 +147,6 @@ public class TemperatureMeasurementUI extends JDialog {
         BrokerService.getInstance().receiveMessage(Constants.AVERAGE_TEMPERATURE, new MessageConsumerFromBrokerService() {
             @Override
             public void onNewMessage(String s) {
-
-//                try {
-//                    TimeUnit.SECONDS.sleep(5);
-//                } catch (InterruptedException e1) {
-//                    e1.printStackTrace();
-//                }
-                if (s == null)
-                    temperatureMessages.setText("Something don't work. Please check the raspberry.");
 
                 TemperatureAverage temperatureAverage = new Gson().fromJson(s, TemperatureAverage.class);
                 avgMessages.setText(temperatureAverage.toString());

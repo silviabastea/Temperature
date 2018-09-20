@@ -23,8 +23,8 @@ public class Average {
 
             try {
                 TimeUnit.SECONDS.sleep(frequency);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            } catch (InterruptedException ignore) {
+
             }
         }
         average = average / index;
